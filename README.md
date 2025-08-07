@@ -28,3 +28,7 @@ The code is divided into logical blocks:
 ## Configuration
 
 In `LLMConfig`, the desired implementation is selected via the `AbstractLLMClient` bean based on the `llm.model` property. If an unknown value is specified, the application will issue an error.
+
+## Bot screenshot:
+
+<img width="1889" height="1487" alt="Снимок экрана 2025-08-07 143244" src="https://github.com/user-attachments/assets/d62da938-1b2c-48b7-87d6-66d8c4747528" />
