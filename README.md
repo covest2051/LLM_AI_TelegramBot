@@ -1,30 +1,30 @@
 # ChatGTP4Bot
 
-ChatGTP4Bot — это Telegram-бот на Spring Boot, который позволяет общаться с различными языковыми моделями (DeepSeek, OpenAI, OpenRouter и HuggingFace) без лишней суеты.
+ChatGTP4Bot is a Telegram bot on Spring Boot that allows you to communicate with various language models (DeepSeek, OpenAI, OpenRouter and HuggingFace) without too much fuss.
 
-## Основные возможности
+## Main features
 
-Достаточно отправить сообщение боту, и он ответит через выбранный вами LLM‑сервис. История переписки автоматически сохраняется, а команда `/clear` очищает контекст одним кликом. При старте бот приветствует вас и рассказывает коротко о своей работе.
+It is enough to send a message to the bot, and it will respond through the LLM service of your choice. The history of correspondence is automatically saved, and the '/clear` command clears the context with one click. At the start, the bot greets you and tells you briefly about its work.
 
-## Как начать работу
+## How to get started
 
-1. Клонируйте репозиторий и перейдите в папку проекта.
-2. В `src/main/resources/application.properties` укажите токены для Telegram и LLM-сервисов, а также выберите модель через параметр `llm.model` (deepseek, openai или openrouter).
-3. Соберите приложение командой `mvn clean package` и запустите его: `java -jar target/ChatGTP4Bot-<версия>.jar`.
+1. Clone the repository and navigate to the project folder.
+2. In `src/main/resources/application.properties', specify the tokens for Telegram and LLM services, and select the model using the `llm.model` parameter (deepseek, openai, or openrouter).
+3. Build the application with the command `mvn clean package` and run it: `java -jar target/ChatGTP4Bot-<version>.jar`.
 
-После запуска бот становится доступен в Telegram — просто начните диалог.
+After launching, the bot becomes available in Telegram — just start the dialogue.
 
-## Структура проекта
+## Project structure
 
-Код разделён на логичные блоки:
+The code is divided into logical blocks:
 
-* **API** (`chat.api`) описывают запросы и ответы LLM.
-* **Client** (`chat.client`) реализуют абстракции для разных провайдеров.
-* **Модели** (`chat.models`) хранят сообщения и историю диалога.
-* **Команды** (`chat.commands`) обрабатывают `/start` и `/clear`.
-* **Сервис** (`chat.service`) связывает всё вместе, отправляя запросы и сохраняющие ответы.
-* **TelegramBot** запускает бота и реагирует на обновления.
+* **API** (`chat.api') describes LLM requests and responses.
+* **Client** (`chat.client') implements abstractions for different providers.
+* **Models** (`chat.models`) store messages and the history of the conversation.
+* **Commands** (`chat.commands') process `/start` and `/clear'.
+* **Service** (`chat.service') links everything together by sending requests and saving responses.
+* **TelegramBot** launches the bot and responds to updates.
 
-## Конфигурация
+## Configuration
 
-В `LLMConfig` через бина `AbstractLLMClient` выбирается нужная реализация на основе свойства `llm.model`. Если указано неизвестное значение, приложение выдаст ошибку.
+In `LLMConfig`, the desired implementation is selected via the `AbstractLLMClient` bean based on the `llm.model` property. If an unknown value is specified, the application will issue an error.
